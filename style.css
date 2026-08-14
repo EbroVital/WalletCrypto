@@ -1,0 +1,117 @@
+:root {
+  --couleur-principale: #2563eb;
+  --couleur-danger: #dc2626;
+  --couleur-succes: #16a34a;
+  --couleur-fond: #f8fafc;
+  --couleur-bordure: #e2e8f0;
+  --couleur-texte: #1e293b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--couleur-fond);
+  color: var(--couleur-texte);
+  margin: 0;
+  padding: 40px 20px;
+}
+
+.portefeuille-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+/* Formulaire */
+.formulaire {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.formulaire input {
+  flex: 1;
+  min-width: 140px;
+  padding: 10px 12px;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.formulaire input:focus {
+  outline: none;
+  border-color: var(--couleur-principale);
+}
+
+.formulaire button {
+  padding: 10px 20px;
+  background: var(--couleur-principale);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.formulaire button:hover {
+  opacity: 0.9;
+}
+
+/* Tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+thead th {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 2px solid var(--couleur-bordure);
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+tbody td {
+  padding: 12px;
+  border-bottom: 1px solid var(--couleur-bordure);
+  text-transform: capitalize;
+}
+
+tbody button {
+  background: none;
+  border: 1px solid var(--couleur-danger);
+  color: var(--couleur-danger);
+  padding: 4px 10px;
+  margin-top:15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+tbody button:hover {
+  background: var(--couleur-danger);
+  color: white;
+}
+
+/* Total */
+#totalPortefeuille {
+  text-align: right;
+  font-size: 20px;
+  font-weight: 700;
+  padding-top: 12px;
+  border-top: 2px solid var(--couleur-texte);
+}

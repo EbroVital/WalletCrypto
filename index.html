@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="portefeuille-container">
+        
+        <h1>Suivi de portefeuille crypto</h1>
+
+        <div class="formulaire">
+            <input id="cryptoNom" type="text" placeholder="ex: bitcoin, ethereum, solana">
+            <input id="cryptoQuantite" type="number" step="any" placeholder="Quantité">
+            <button id="ajouterActif">Ajouter</button>
+        </div>
+
+        <table>
+            <thead>
+            <tr><th>Crypto</th><th>Quantité</th><th>Valeur ($)</th><th></th></tr>
+            </thead>
+            <tbody id="listeActifs"></tbody>
+        </table>
+
+        <p id="totalPortefeuille">Total : chargement...</p>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
