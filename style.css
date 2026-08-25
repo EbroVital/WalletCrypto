@@ -1,39 +1,61 @@
 :root {
-  --couleur-principale: #2563eb;
-  --couleur-danger: #dc2626;
-  --couleur-succes: #16a34a;
-  --couleur-fond: #f8fafc;
-  --couleur-bordure: #e2e8f0;
-  --couleur-texte: #1e293b;
+  /* Couleur de fond principale : noir très sombre, typique des interfaces de trading */
+  --couleur-fond: #0b0e11;
+
+  /* Couleur des "cartes" (un peu plus claire que le fond, pour créer de la profondeur) */
+  --couleur-carte: #181a20;
+
+  /* Jaune emblématique de Binance, utilisé pour les boutons et accents importants */
+  --couleur-accent: #f0b90b;
+
+  /* Vert et rouge, standards en finance pour indiquer hausse/baisse */
+  --couleur-hausse: #0ecb81;
+  --couleur-baisse: #f6465d;
+
+  /* Couleur des bordures discrètes entre les éléments */
+  --couleur-bordure: #2b3139;
+
+  /* Texte principal (blanc cassé, moins agressif qu'un blanc pur) */
+  --couleur-texte: #eaecef;
+
+  /* Texte secondaire, plus discret (labels, sous-titres) */
+  --couleur-texte-muted: #848e9c;
 }
 
+/* Reset universel : évite les débordements liés au padding/border par défaut */
 * {
   box-sizing: border-box;
 }
 
+/* Fond général de la page + police système + texte clair par défaut */
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: 'Segoe UI', Roboto, sans-serif;
   background: var(--couleur-fond);
   color: var(--couleur-texte);
   margin: 0;
   padding: 40px 20px;
 }
 
+/* Conteneur principal : centré, largeur maximale, avec la couleur "carte" en fond */
 .portefeuille-container {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
-  background: white;
+  background: var(--couleur-carte);
   padding: 32px;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  border: 1px solid var(--couleur-bordure);
 }
 
+/* Titre principal avec une petite barre jaune décorative à gauche (touche Binance) */
 h1 {
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: 600;
   margin-bottom: 24px;
+  padding-left: 12px;
+  border-left: 3px solid var(--couleur-accent);
 }
 
-/* Formulaire */
+/* Formulaire aligné horizontalement avec flexbox */
 .formulaire {
   display: flex;
   gap: 8px;
@@ -41,77 +63,112 @@ h1 {
   flex-wrap: wrap;
 }
 
+/* Champs de saisie : fond sombre, bordure discrète, texte clair */
 .formulaire input {
   flex: 1;
   min-width: 140px;
-  padding: 10px 12px;
+  padding: 12px;
+  background: var(--couleur-fond);
   border: 1px solid var(--couleur-bordure);
-  border-radius: 6px;
+  border-radius: 4px;
+  color: var(--couleur-texte);
   font-size: 14px;
 }
 
-.formulaire input:focus {
-  outline: none;
-  border-color: var(--couleur-principale);
+/* Le texte "placeholder" (indication grisée avant saisie) en couleur discrète */
+.formulaire input::placeholder {
+  color: var(--couleur-texte-muted);
 }
 
+/* Au focus (quand on clique dans le champ), la bordure devient jaune Binance */
+.formulaire input:focus {
+  outline: none;
+  border-color: var(--couleur-accent);
+}
+
+/* Bouton "Ajouter" : fond jaune, texte noir (contraste fort, très Binance) */
 .formulaire button {
-  padding: 10px 20px;
-  background: var(--couleur-principale);
-  color: white;
+  padding: 12px 24px;
+  background: var(--couleur-accent);
+  color: #0b0e11;
   border: none;
-  border-radius: 6px;
-  font-weight: 600;
+  border-radius: 4px;
+  font-weight: 700;
   cursor: pointer;
 }
 
+/* Légère transparence au survol pour indiquer l'interactivité */
 .formulaire button:hover {
   opacity: 0.9;
 }
 
-/* Tableau */
+/* Le tableau prend toute la largeur, sans bordures doublées entre cellules */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
 }
 
+/* En-tête du tableau : texte petit, en majuscules, couleur discrète (style "market list") */
 thead th {
-  text-align: left;
-  padding: 10px 12px;
-  border-bottom: 2px solid var(--couleur-bordure);
-  font-size: 13px;
+  text-align: center;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--couleur-bordure);
+  font-size: 12px;
   text-transform: uppercase;
-  color: #64748b;
+  color: var(--couleur-texte-muted);
+  font-weight: 500;
 }
 
+/* Chaque ligne du tableau : padding confortable, séparation discrète, majuscule sur le nom */
 tbody td {
-  padding: 12px;
+  padding: 14px 8px;
   border-bottom: 1px solid var(--couleur-bordure);
   text-transform: capitalize;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
 }
 
+/* Petit effet de surbrillance douce quand on survole une ligne (comme sur Binance) */
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Bouton supprimer discret, en rouge, qui ne prend de la couleur qu'au survol */
 tbody button {
   background: none;
-  border: 1px solid var(--couleur-danger);
-  color: var(--couleur-danger);
+  border: 1px solid var(--couleur-baisse);
+  color: var(--couleur-baisse);
   padding: 4px 10px;
-  margin-top:15px;
+  margin-top: 15px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 12px;
 }
 
 tbody button:hover {
-  background: var(--couleur-danger);
+  background: var(--couleur-baisse);
   color: white;
 }
 
-/* Total */
+/* Total du portefeuille : grande taille, couleur "hausse" (vert), chiffres alignés */
 #totalPortefeuille {
   text-align: right;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
-  padding-top: 12px;
-  border-top: 2px solid var(--couleur-texte);
+  color: var(--couleur-hausse);
+  padding-top: 16px;
+  border-top: 1px solid var(--couleur-bordure);
+  font-variant-numeric: tabular-nums;
+}
+
+/* variation */
+.hausse { 
+  color: var(--couleur-hausse); 
+}
+.baisse { 
+  color: var(--couleur-baisse); 
+}
+.neutre { 
+  color: var(--couleur-texte-muted); 
 }
