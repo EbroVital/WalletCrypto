@@ -33,6 +33,8 @@ Endpoint utilisé :
 https://api.coingecko.com/api/v3/simple/price?ids={nom_crypto}&vs_currencies=usd&include_24hr_change=true
 ```
 ## Aperçu
+<img width="1366" height="768" alt="crypto" src="https://github.com/user-attachments/assets/d5af3e06-b82d-4d20-acb0-176edd763efc" />
+
 
 ##  Installation et utilisation
 
